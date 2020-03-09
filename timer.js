@@ -24,7 +24,7 @@ class Timer {
 
     // set inteval return an ID integer, representing running interval
     //to stop it, call clearInterval(id)
-    this.interval = setInterval(this.tick, 50);
+    this.interval = setInterval(this.tick, 20);
   };
 
   pause = () => {
@@ -42,7 +42,7 @@ class Timer {
       // this.timeRemaining = timeRemaining - 1;
       // We've hidden away complexity above by using getter and setter
       // setter = getter - 1;
-      this.timeRemaining = this.timeRemaining - 0.05;
+      this.timeRemaining = this.timeRemaining - 0.02;
       if (this.onTick) {
         this.onTick(this.timeRemaining);
       }
