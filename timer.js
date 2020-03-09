@@ -18,13 +18,13 @@ class Timer {
   // or fix above code to this.start.bind(this)
   start = () => {
     if (this.onStart) {
-      this.onStart();
+      this.onStart(this.timeRemaining);
     }
     this.tick();
 
     // set inteval return an ID integer, representing running interval
     //to stop it, call clearInterval(id)
-    this.interval = setInterval(this.tick, 1000);
+    this.interval = setInterval(this.tick, 50);
   };
 
   pause = () => {
@@ -42,9 +42,9 @@ class Timer {
       // this.timeRemaining = timeRemaining - 1;
       // We've hidden away complexity above by using getter and setter
       // setter = getter - 1;
-      this.timeRemaining = this.timeRemaining - 1;
+      this.timeRemaining = this.timeRemaining - 0.05;
       if (this.onTick) {
-        this.onTick();
+        this.onTick(this.timeRemaining);
       }
     }
   };
@@ -54,6 +54,6 @@ class Timer {
   }
 
   set timeRemaining(time) {
-    this.durationInput.value = time;
+    this.durationInput.value = time.toFixed(2);
   }
 }
